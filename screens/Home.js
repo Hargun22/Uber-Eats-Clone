@@ -6,9 +6,19 @@ import Categories from "../components/Categories";
 import RestaurantItems, {
   localRestaurants,
 } from "../components/RestaurantItems";
+import { Divider } from "react-native-elements";
+import BottomTabs from "../components/BottomTabs";
 
 const YELP_API_KEY =
   "RwP1a9_UM955KMP-eXUp9avcXFBXa2UaSidCndKxTVsgHLhxKcAPb9NjKLIuxRc5RHQdancu3szRv2Jo9YUyIN67-5xXM8LUXNBJN9cRqO3Z0bpOgMGIElStZ-0GY3Yx";
+
+const handleOtherCities = (business, activeTab) => {
+  if (business.transactions.includes(activeTab.toLowerCase())) {
+    return business;
+  } else if (business.transactions.includes("restaurant_reservation")) {
+    return business;
+  }
+};
 
 export default function Home() {
   const [restaurantData, setRestaurantData] = useState(localRestaurants);
@@ -28,7 +38,7 @@ export default function Home() {
       .then((json) =>
         setRestaurantData(
           json.businesses.filter((business) =>
-            business.transactions.includes(activeTab.toLowerCase())
+            handleOtherCities(business, activeTab)
           )
         )
       );
@@ -48,6 +58,8 @@ export default function Home() {
         <Categories />
         <RestaurantItems restaurantData={restaurantData} />
       </ScrollView>
+      <Divider width={1} />
+      <BottomTabs />
     </SafeAreaView>
   );
 }

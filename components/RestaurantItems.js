@@ -83,6 +83,7 @@ const RestaurantInfo = (props) => (
         width: 30,
         alignItems: "center",
         borderRadius: 15,
+        paddingTop: 5,
       }}
     >
       <Text>{props.rating}</Text>
