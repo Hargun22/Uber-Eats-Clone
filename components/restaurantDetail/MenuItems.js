@@ -1,9 +1,24 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { ScrollView } from "react-native";
 import { Divider } from "react-native-elements";
+import ViewCart from "./ViewCart";
 
 const foods = [
+  {
+    title: "Tandoori Chicken2",
+    description: "Anazing, Indigg dish with tenderloin chicken off the s",
+    price: "$19.20",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+  },
+  {
+    title: "Tandoori Chicken2",
+    description: "Anazing, Indigg dish with tenderloin chicken off the s",
+    price: "$19.20",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+  },
   {
     title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
@@ -12,31 +27,38 @@ const foods = [
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
-    title: "Lasagna",
+    title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$13.50",
+    price: "$19.20",
     image:
-      "https://media.istockphoto.com/photos/table-top-view-of-spicy-food-picture-id1316145932?b=1&k=20&m=1316145932&s=170667a&w=0&h=feyrNSTglzksHoEDSsnrG47UoY_XX4PtayUPpSMunQI=",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
-    title: "Lasagna2",
+    title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$13.50",
+    price: "$19.20",
     image:
-      "https://media.istockphoto.com/photos/table-top-view-of-spicy-food-picture-id1316145932?b=1&k=20&m=1316145932&s=170667a&w=0&h=feyrNSTglzksHoEDSsnrG47UoY_XX4PtayUPpSMunQI=",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
-    title: "Lasagna2",
+    title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$13.50",
+    price: "$19.20",
     image:
-      "https://media.istockphoto.com/photos/table-top-view-of-spicy-food-picture-id1316145932?b=1&k=20&m=1316145932&s=170667a&w=0&h=feyrNSTglzksHoEDSsnrG47UoY_XX4PtayUPpSMunQI=",
+      "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
+  },
+  {
+    title: "Tandoori Chicken",
+    description: "Anazing, Indigg dish with tenderloin chicken off the s",
+    price: "$19.20",
+    image:
+      "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
 ];
 
 export default function MenuItems() {
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <View style={{ justifyContent: "flex-end", flex: 1 }}>
       {foods.map((food, index) => (
         <View key={index}>
           <View
@@ -56,9 +78,11 @@ export default function MenuItems() {
           />
         </View>
       ))}
-    </ScrollView>
+    </View>
   );
 }
+
+//<ViewCart restaurantName={name} navigation={navigation} />
 
 const FoodInfo = (props) => (
   <View style={{ width: 240, justifyContent: "space-evenly" }}>
