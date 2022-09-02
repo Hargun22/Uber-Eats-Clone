@@ -24,7 +24,7 @@ export default function ViewCart() {
       >
         <TouchableOpacity
           style={{
-            margintTop: 20,
+            marginTop: 20,
             backgroundColor: "black",
             alignItems: "center",
             padding: 13,
