@@ -2,9 +2,28 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { Divider } from "react-native-elements";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  selectBasketItemsWithId,
+  addToBasket,
+  removeFromBasket,
+} from "../../features/basketSlice";
 
 export default function MenuItem({ index, food }) {
   const [isPressed, setIsPressed] = useState(false);
+  const items = useSelector((state) => selectBasketItemsWithId(state, index));
+  const dispatch = useDispatch();
+  const addItemToBasket = () => {
+    dispatch(addToBasket({ index, food }));
+  };
+
+  const removeItemFromBasket = () => {
+    if (!items.length > 0) {
+      return;
+    }
+
+    dispatch(removeFromBasket({ index }));
+  };
   return (
     <>
       <TouchableOpacity key={index} onPress={() => setIsPressed(!isPressed)}>
@@ -40,11 +59,18 @@ export default function MenuItem({ index, food }) {
               paddingBottom: 20,
             }}
           >
-            <TouchableOpacity>
-              <AntDesign name="minuscircle" size={25} />
+            <TouchableOpacity
+              disabled={!items.length}
+              onPress={removeItemFromBasket}
+            >
+              <AntDesign
+                name="minuscircle"
+                size={25}
+                color={items.length > 0 ? "black" : "gray"}
+              />
             </TouchableOpacity>
-            <Text>0</Text>
-            <TouchableOpacity>
+            <Text>{items.length}</Text>
+            <TouchableOpacity onPress={addItemToBasket}>
               <AntDesign name="pluscircle" size={25} />
             </TouchableOpacity>
           </View>
