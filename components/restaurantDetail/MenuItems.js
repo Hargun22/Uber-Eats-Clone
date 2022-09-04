@@ -7,49 +7,49 @@ const foods = [
   {
     title: "Tandoori Chicken2",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$19.20",
+    price: 19.2,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
     title: "Tandoori Chicken2",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$19.20",
+    price: 19.2,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
     title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$19.20",
+    price: 19.2,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
     title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$19.20",
+    price: 19.2,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
     title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$19.20",
+    price: 19.2,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
     title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$19.20",
+    price: 19.2,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },
   {
     title: "Tandoori Chicken",
     description: "Anazing, Indigg dish with tenderloin chicken off the s",
-    price: "$19.20",
+    price: 19.2,
     image:
       "https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg",
   },

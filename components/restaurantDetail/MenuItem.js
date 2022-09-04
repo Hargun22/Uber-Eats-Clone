@@ -9,6 +9,8 @@ import {
   removeFromBasket,
 } from "../../features/basketSlice";
 
+import Currency from "react-currency-formatter";
+
 export default function MenuItem({ index, food }) {
   const [isPressed, setIsPressed] = useState(false);
   const items = useSelector((state) => selectBasketItemsWithId(state, index));
@@ -89,7 +91,9 @@ const FoodInfo = (props) => (
   <View style={{ width: 240, justifyContent: "space-evenly" }}>
     <Text style={{ fontSize: 19, fontWeight: "600" }}>{props.food.title}</Text>
     <Text>{props.food.description}</Text>
-    <Text>{props.food.price}</Text>
+    <Text>
+      <Currency quantity={props.food.price} currency="CAD" />
+    </Text>
   </View>
 );
 

@@ -1,8 +1,17 @@
 import { View, Text, Touchable } from "react-native";
 import React from "react";
 import { TouchableOpacity } from "react-native";
+import { useSelector } from "react-redux";
+import {
+  selectBasketItems,
+  selectBasketTotal,
+} from "../../features/basketSlice";
+import Currency from "react-currency-formatter";
+import { createNativeWrapper } from "react-native-gesture-handler";
 
 export default function ViewCart() {
+  const items = useSelector(selectBasketItems);
+  const basketTotal = useSelector(selectBasketTotal);
   return (
     <View
       style={{
@@ -11,7 +20,7 @@ export default function ViewCart() {
         justifyContent: "center",
         flexDirection: "row",
         position: "absolute",
-        bottom: 90,
+        bottom: 130,
         zIndex: 999,
       }}
     >
@@ -31,9 +40,38 @@ export default function ViewCart() {
             borderRadius: 30,
             width: 300,
             position: "absolute",
+            flexDirection: "row",
           }}
         >
-          <Text style={{ color: "white", fontSize: 20 }}>View Cart</Text>
+          <View
+            style={{
+              alignItems: "center",
+              backgroundColor: "#272727",
+              borderRadius: 50,
+            }}
+          >
+            <Text style={{ color: "white", fontSize: 20, padding: 15 }}>
+              {items.length}
+            </Text>
+          </View>
+          <View
+            style={{
+              alignItems: "center",
+              flex: 1,
+            }}
+          >
+            <Text
+              style={{
+                color: "white",
+                fontSize: 20,
+              }}
+            >
+              View Cart
+            </Text>
+            <Text style={{ color: "white", fontSize: 20, paddingRight: 5 }}>
+              <Currency quantity={basketTotal} currency="CAD" />
+            </Text>
+          </View>
         </TouchableOpacity>
       </View>
     </View>
