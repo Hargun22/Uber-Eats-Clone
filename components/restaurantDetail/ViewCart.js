@@ -9,6 +9,13 @@ import {
 import Currency from "react-currency-formatter";
 import OrderItem from "./OrderItem";
 import { ScrollView } from "react-native-gesture-handler";
+import firebaseApp from "../../firebase";
+import {
+  getFirestore,
+  addDoc,
+  collection,
+  Timestamp,
+} from "firebase/firestore";
 
 export default function ViewCart() {
   const items = useSelector(selectBasketItems);
@@ -45,7 +52,9 @@ export default function ViewCart() {
 
                   position: "relative",
                 }}
-                onPress={() => setModalVisible(false)}
+                onPress={() => {
+                  addOrderTorFireBase();
+                }}
               >
                 <View
                   style={{
@@ -101,6 +110,21 @@ export default function ViewCart() {
       marginBottom: 10,
     },
   });
+
+  const addOrderTorFireBase = async () => {
+    const db = getFirestore(firebaseApp);
+    try {
+      const docRef = await addDoc(collection(db, "orders"), {
+        items: items,
+        createdAt: Timestamp.now(),
+      });
+
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
+    setModalVisible(false);
+  };
 
   return (
     <>
