@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   items: [],
+  restaurantName: "",
 };
 
 export const basketSlice = createSlice({
@@ -24,13 +25,18 @@ export const basketSlice = createSlice({
 
       state.items = newBasket;
     },
+    addRestaurantName: (state, action) => {
+      state.restaurantName = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addToBasket, removeFromBasket } = basketSlice.actions;
+export const { addToBasket, removeFromBasket, addRestaurantName } =
+  basketSlice.actions;
 
 export const selectBasketItems = (state) => state.basket.items;
+export const getRestaurantName = (state) => state.basket.restaurantName;
 
 export const selectBasketItemsWithId = (state, id) =>
   state.basket.items.filter((item) => item.index == id);

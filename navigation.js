@@ -2,6 +2,7 @@ import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer, StackActions } from "@react-navigation/native";
 import RestaurantDetail from "./screens/RestaurantDetail";
+import OrderCompleted from "./screens/OrderCompleted";
 import Home from "./screens/Home";
 
 export default function RootNavigation() {
@@ -16,6 +17,7 @@ export default function RootNavigation() {
       <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="RestaurantDetail" component={RestaurantDetail} />
+        <Stack.Screen name="OrderCompleted" component={OrderCompleted} />
       </Stack.Navigator>
     </NavigationContainer>
   );

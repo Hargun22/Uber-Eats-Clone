@@ -7,23 +7,27 @@ import {
   selectBasketItemsWithId,
   addToBasket,
   removeFromBasket,
+  addRestaurantName,
 } from "../../features/basketSlice";
 
 import Currency from "react-currency-formatter";
 
-export default function MenuItem({ index, food }) {
+export default function MenuItem({ restaurantName, index, food }) {
   const [isPressed, setIsPressed] = useState(false);
   const items = useSelector((state) => selectBasketItemsWithId(state, index));
   const dispatch = useDispatch();
   const addItemToBasket = () => {
     dispatch(addToBasket({ index, food }));
+    dispatch(addRestaurantName(restaurantName));
   };
 
   const removeItemFromBasket = () => {
     if (!items.length > 0) {
       return;
     }
-
+    if (items.length == 1) {
+      dispatch(addRestaurantName(""));
+    }
     dispatch(removeFromBasket({ index }));
   };
   return (

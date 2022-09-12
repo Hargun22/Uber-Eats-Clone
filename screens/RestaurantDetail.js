@@ -12,9 +12,9 @@ export default function RestaurantDetail({ route, navigation }) {
       <ScrollView vertical showsVerticalScrollIndicator={false}>
         <About route={route} />
         <Divider width={5} style={{ marginTop: 10 }} />
-        <MenuItems />
+        <MenuItems route={route} />
       </ScrollView>
-      <ViewCart restaurantName={route.params.name} navigation={navigation} />
+      <ViewCart navigation={navigation} />
     </View>
   );
 }
