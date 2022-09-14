@@ -4,6 +4,7 @@ import { NavigationContainer, StackActions } from "@react-navigation/native";
 import RestaurantDetail from "./screens/RestaurantDetail";
 import OrderCompleted from "./screens/OrderCompleted";
 import Home from "./screens/Home";
+import Checkout from "./components/restaurantDetail/Checkout";
 
 export default function RootNavigation() {
   const Stack = createStackNavigator();
@@ -17,6 +18,11 @@ export default function RootNavigation() {
       <Stack.Navigator initialRouteName="Home" screenOptions={screenOptions}>
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="RestaurantDetail" component={RestaurantDetail} />
+        <Stack.Screen
+          name="Checkout"
+          component={Checkout}
+          options={{ presentation: "modal", headerShown: false }}
+        />
         <Stack.Screen name="OrderCompleted" component={OrderCompleted} />
       </Stack.Navigator>
     </NavigationContainer>

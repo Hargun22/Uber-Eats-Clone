@@ -8,27 +8,27 @@ import {
 } from "../../features/basketSlice";
 import Currency from "react-currency-formatter";
 import Checkout from "./Checkout";
+import { useNavigation } from "@react-navigation/native";
 
-export default function ViewCart({ navigation }) {
+export default function ViewCart() {
   const items = useSelector(selectBasketItems);
   const basketTotal = useSelector(selectBasketTotal);
   const restaurantName = useSelector(getRestaurantName);
-  const [modalVisible, setModalVisible] = useState(false);
+  const navigation = useNavigation();
 
   return (
     <>
-      <Modal
+      {/* <Modal
         animationType="fade"
         visible={modalVisible}
         transparent={true}
         onRequestClose={() => setModalVisible(false)}
       >
         <Checkout
-          navigation={navigation}
           modalVisible={modalVisible}
           setModalVisible={setModalVisible}
         />
-      </Modal>
+      </Modal> */}
       <View
         style={{
           flex: 1,
@@ -58,7 +58,7 @@ export default function ViewCart({ navigation }) {
               position: "absolute",
               flexDirection: "row",
             }}
-            onPress={() => setModalVisible(true)}
+            onPress={() => navigation.navigate("Checkout")}
           >
             <View
               style={{
