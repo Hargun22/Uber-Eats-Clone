@@ -5,6 +5,7 @@ import RestaurantDetail from "./screens/RestaurantDetail";
 import OrderCompleted from "./screens/OrderCompleted";
 import Home from "./screens/Home";
 import Checkout from "./components/restaurantDetail/Checkout";
+import Delivery from "./screens/Delivery";
 
 export default function RootNavigation() {
   const Stack = createStackNavigator();
@@ -24,6 +25,7 @@ export default function RootNavigation() {
           options={{ presentation: "modal", headerShown: false }}
         />
         <Stack.Screen name="OrderCompleted" component={OrderCompleted} />
+        <Stack.Screen name="Delivery" component={Delivery} />
       </Stack.Navigator>
     </NavigationContainer>
   );
